@@ -1,8 +1,11 @@
 # Laporan Praktikum dan Tugas JS 6
 
 Nama    : Armand Maulana Andika Putra
+
 Kelas   : TI-3C
+
 NIM     : 2241720090
+
 
 ## Praktikum 2
 ![Screenshot hello_world](images/langkah11.png)
