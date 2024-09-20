@@ -27,6 +27,9 @@ A new Flutter project.
 - Input dan Selection Widget -> "textfield_widget.dart"
 - Date and Time Pickers -> "datetime_widget.dart"
 
+Output:
+![Screenshot hello_world](images/Tugas.png)
+
 
 
 
