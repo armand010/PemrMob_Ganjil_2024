@@ -1,16 +1,28 @@
-# layout_flutter
+# Laporan Praktikum 1 - 4
 
-A new Flutter project.
+Nama : Armand Maulana Andika Putra
+Kelas : TI-3C
+NIM : 2241720090
 
-## Getting Started
+## Praktikum 1
+![Screenshot hello_world](images/praktikum1.png)
+Menambahkan judul sebagai keterangan info dari gambar yang akan ditambahkan
+menggunakan widget titleSection yang berisi teks dan icon bintang
 
-This project is a starting point for a Flutter application.
+## Praktikum 2
+![Screenshot hello_world](images/praktikum2.png)
+Menambahkan button dengan widget buttonSection 
+yang divisualkan dengan 3 icon yang berdampingan dengan
+keterangan dari icon tersebut 
 
-A few resources to get you started if this is your first Flutter project:
+## Praktikum 3
+![Screenshot hello_world](images/praktikum3.png)
+Menambahkan teks dengan widget textSection yang berisi
+keterangan dari gambar yang akan ditambahkan serta
+nama dan nim dari mahasiswa
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Praktikum 4
+![Screenshot hello_world](images/praktikum4.png)
+Menambahkan image dengan memodifikasi kode program di pusbec.yaml
+serta memodifikasi body pada MyApp
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
