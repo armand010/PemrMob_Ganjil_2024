@@ -13,6 +13,8 @@ NIM : 2241720090
 ![Screenshot hello_world](image/Praktikum-js7.png)
 
 2. Jelaskan maksud dari langkah 2 pada praktikum tersebut!
+
+
 “flutter pub add auto_size_text” digunakan untuk menginstal plugin auto_size_text pada project
 
 3. Jelaskan maksud dari langkah 5 pada praktikum tersebut!
