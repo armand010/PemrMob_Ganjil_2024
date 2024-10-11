@@ -8,6 +8,8 @@ NIM : 2241720090
 
 # Tugas Praktikum
 1. Output
+
+
 ![Screenshot hello_world](image/Praktikum-js7.png)
 
 2. Jelaskan maksud dari langkah 2 pada praktikum tersebut!
