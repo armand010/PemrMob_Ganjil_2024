@@ -32,11 +32,11 @@ class _StearmHomePageState extends State<StreamHomePage> {
   late ColorsStream colorStream;
 
   void changeColor() async {
-    await for (var eventColor in colorStream.getColors()) {
+    colorStream.getColors().listen((eventColor) {
       setState(() {
         bgColor = eventColor;
       });
-    }
+    });
   }
 
   @override
