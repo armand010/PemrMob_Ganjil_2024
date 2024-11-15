@@ -5,3 +5,7 @@
 # Praktikum 1
 ## Soal 4
 ![Screenshot hello_world](assets/OutputPraktikum1.gif)
+
+# Praktikum 2
+## Soal 6
+![Screenshot hello_world](assets/OutputPraktikum2.gif)
