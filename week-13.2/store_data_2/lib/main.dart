@@ -28,7 +28,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  @override
   final pwdController = TextEditingController();
   String myPass = '';
   final storage = const FlutterSecureStorage();
