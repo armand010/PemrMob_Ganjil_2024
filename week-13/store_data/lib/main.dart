@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'pizza.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:path_provider/path_provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,6 +34,8 @@ class _MyHomePageState extends State<MyHomePage> {
   String pizzaString = '';
   List<Pizza> myPizzas = [];
   int appCounter = 0;
+  String documentsPath = '';
+  String tempPath = '';
 
   Future<List<Pizza>> readJsonFile() async {
     String myString = await DefaultAssetBundle.of(context)
@@ -72,32 +75,33 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  Future getPaths() async {
+    final docDir = await getApplicationDocumentsDirectory();
+    final tempDir = await getTemporaryDirectory();
+
+    setState(() {
+      documentsPath = docDir.path;
+      tempPath = tempDir.path;
+    });
+  }
+
   @override
   void initState() {
     super.initState();
-    readAndWritePreferences();
+    getPaths();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('JSON')),
-      body: Column(children: [
-        Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text('You have opened the app $appCounter times'),
-              ElevatedButton(
-                onPressed: () {
-                  deletePreference();
-                },
-                child: Text('Reset counter'),
-              )
-            ],
-          ),
-        )
-      ]),
+      appBar: AppBar(title: const Text('Path Provider')),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Text('Doc path: $documentsPath'),
+          Text('Temp path: $tempPath'),
+        ],
+      ),
     );
   }
 }
