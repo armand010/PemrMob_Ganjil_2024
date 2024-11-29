@@ -1,9 +1,17 @@
 class Pizza {
-  final int id;
-  final String pizzaName;
-  final String description;
-  final double price;
-  final String imageUrl;
+  int id;
+  String pizzaName;
+  String description;
+  double price;
+  String imageUrl;
+
+  Pizza({
+    this.id = 0,
+    this.pizzaName = '',
+    this.description = '',
+    this.price = 0.0,
+    this.imageUrl = '',
+  });
 
   Pizza.fromJson(Map<String, dynamic> json)
       : id = json['id'],
