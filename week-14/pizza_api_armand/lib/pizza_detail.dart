@@ -4,14 +4,17 @@ import 'package:flutter/material.dart';
 import 'pizza.dart';
 import 'httphelper.dart';
 
-class PizzaDetaiScreen extends StatefulWidget {
-  const PizzaDetaiScreen({super.key});
+class PizzaDetailScreen extends StatefulWidget {
+  final Pizza pizza;
+  final bool isNew;
+  const PizzaDetailScreen(
+      {super.key, required this.pizza, required this.isNew});
 
   @override
-  State<PizzaDetaiScreen> createState() => _PizzaDetaiScreenState();
+  State<PizzaDetailScreen> createState() => _PizzaDetailScreenState();
 }
 
-class _PizzaDetaiScreenState extends State<PizzaDetaiScreen> {
+class _PizzaDetailScreenState extends State<PizzaDetailScreen> {
   final TextEditingController txtId = TextEditingController();
   final TextEditingController txtName = TextEditingController();
   final TextEditingController txtDescription = TextEditingController();
@@ -25,10 +28,35 @@ class _PizzaDetaiScreenState extends State<PizzaDetaiScreen> {
     pizza.id = int.tryParse(txtId.text) ?? 0;
     pizza.pizzaName = txtName.text;
     pizza.description = txtDescription.text;
-    pizza.price = double.tryParse(txtPrice.text)?? 0.0;
+    pizza.price = double.tryParse(txtPrice.text) ?? 0.0;
     pizza.imageUrl = txtImageUrl.text;
     String result = await helper.postPizza(pizza);
 
+    setState(() {
+      operationResult = result;
+    });
+  }
+
+  Future putPizza() async {
+    HttpHelper helper = HttpHelper();
+    Pizza pizza = Pizza(
+      id: int.tryParse(txtId.text) ?? 0,
+      pizzaName: txtName.text,
+      description: txtDescription.text,
+      price: double.tryParse(txtPrice.text) ?? 0.0,
+      imageUrl: txtImageUrl.text,
+    );
+    String result = await helper.putPizza(pizza);
+    setState(() {
+      operationResult = result;
+    });
+  }
+
+  Future savePizza() async {
+    HttpHelper helper = HttpHelper();
+    Pizza pizza = Pizza();
+    final result =
+        await (widget.isNew ? helper.postPizza(pizza) : helper.putPizza(pizza));
     setState(() {
       operationResult = result;
     });
@@ -42,6 +70,18 @@ class _PizzaDetaiScreenState extends State<PizzaDetaiScreen> {
     txtPrice.dispose();
     txtImageUrl.dispose();
     super.dispose();
+  }
+
+  @override
+  void initState() {
+    if (!widget.isNew) {
+      txtId.text = widget.pizza.id.toString();
+      txtName.text = widget.pizza.pizzaName;
+      txtDescription.text = widget.pizza.description;
+      txtPrice.text = widget.pizza.price.toString();
+      txtImageUrl.text = widget.pizza.imageUrl;
+    }
+    super.initState();
   }
 
   @override
@@ -96,7 +136,7 @@ class _PizzaDetaiScreenState extends State<PizzaDetaiScreen> {
                 ElevatedButton(
                   child: const Text('Send Post'),
                   onPressed: () {
-                    postPizza();
+                    savePizza();
                   },
                 )
               ],
